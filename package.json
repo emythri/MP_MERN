@@ -10,9 +10,16 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "base64-js": "^1.5.1",
+    "canvas": "^3.1.0",
     "cors": "^2.8.5",
     "express": "^4.21.2",
+    "mathjs": "^14.2.1",
     "mongoose": "^8.10.0",
-    "node-fetch": "^3.3.2"
+    "node-fetch": "^3.3.2",
+    "plotly.js": "^3.0.0",
+    "type": "module"
+    
   }
+  
 }
