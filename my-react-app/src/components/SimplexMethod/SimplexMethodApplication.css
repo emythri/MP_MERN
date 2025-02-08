@@ -1,0 +1,14 @@
+/* src/SimplexMethodApplication.css */
+
+.application {
+    text-align: center;
+}
+
+.application p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.application button {
+    margin-top: 20px;
+}

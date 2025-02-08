@@ -1,0 +1,87 @@
+/* src/GraphicalMethod.css */
+
+/* General Styles */
+body {
+    font-family: 'Georgia', serif;
+    background-color: #f4f4f9; /* Light background color */
+    color: #333; /* Dark text color */
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: #333; /* Dark header background */
+    color: #fff; /* Light text color */
+    padding: 10px 0;
+}
+
+.header-container {
+    width: 80%;
+    margin: 0 auto; /* Center align container */
+    padding: 20px;
+}
+
+header .logo h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-family: 'Times New Roman', serif; /* Classic font for logo */
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links li {
+    margin: 0 10px;
+}
+
+.nav-links a {
+    color: #fff; /* Light text color for nav links */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Container */
+.main-container {
+    width: 80%;
+    margin: 0 auto; /* Center align container */
+    padding: 20px;
+    background-color: #fff; /* White background for the container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Footer */
+footer {
+    background: #333; /* Dark footer background */
+    color: #fff; /* Light text color */
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+/*   this line is comment src/GraphicalMethodApplication.css 
+
+.application {
+    text-align: center;
+}
+
+.application p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.application button {
+    margin-top: 20px;
+}*/

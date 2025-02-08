@@ -1,0 +1,32 @@
+/* src/GraphicalMethodSteps.css */
+
+.graphical-method-steps {
+    text-align: left;
+    padding: 20px;
+}
+
+.graphical-method-steps h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.graphical-method-steps p,
+.graphical-method-steps ul,
+.graphical-method-steps ol {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.graphical-method-steps strong {
+    font-weight: bold;
+}
+
+.graphical-method-steps ul {
+    list-style-type: disc;
+    margin-left: 40px;
+}
+
+.graphical-method-steps ol {
+    list-style-type: decimal;
+    margin-left: 40px;
+}

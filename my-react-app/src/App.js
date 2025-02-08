@@ -1,105 +1,79 @@
 // src/App.js
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Home from './components/Home/HomePage';
+import GraphicalMethodPage from './components/GraphicalMethod/GraphicalMethodPage';
+import GraphicalMethodApplication from './components/GraphicalMethod/GraphicalMethodApplication';
+import GraphicalMethodResult from './components/GraphicalMethod/GraphicalMethodResult';
+import GraphicalMethodSolve from './components/GraphicalMethod/GraphicalMethodSolve';
+import SimplexMethodPage from './components/SimplexMethod/SimplexMethodPage';
+import SimplexMethodApplication from './components/SimplexMethod/SimplexMethodApplication';
+import SimplexMethodResult from './components/SimplexMethod/SimplexMethodResult';
+import SimplexMethodSolve from './components/SimplexMethod/SimplexMethodSolve'
+import GraphicalMethodSteps from './components/GraphicalMethod/GraphicalMethodSteps';
+import SimplexMethodSteps from './components/SimplexMethod/SimplexMethodSteps';
 
 function App() {
-    const [constraints, setConstraints] = useState(['']);
-    const [objective, setObjective] = useState('');
-    const [solution, setSolution] = useState(null);
-
-    const handleAddConstraint = () => {
-        setConstraints([...constraints, '']);
-    };
-
-    const handleChangeConstraint = (index, value) => {
-        const newConstraints = constraints.slice();
-        newConstraints[index] = value;
-        setConstraints(newConstraints);
-    };
-
-    const handleSubmit = async () => {
-        const response = await fetch('http://localhost:5000/api/solve_graphical', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                opt_type: 'maximize',
-                objective: objective,
-                constraints: constraints
-            })
-        });
-        const data = await response.json();
-        setSolution(data);
-    };
-
     return (
-        <div>
-            <h1>Linear Programming Solver</h1>
+        <Router>
             <div>
-                <h2>Objective Function</h2>
-                <input
-                    type="text"
-                    value={objective}
-                    onChange={(e) => setObjective(e.target.value)}
-                    placeholder="Enter objective function"
-                />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/graphical" element={<GraphicalMethodPage />} />
+                    <Route path="/graphical-application" element={<GraphicalMethodApplication />} />
+                    <Route path="/graphical-result" element={<GraphicalMethodResult />} />
+                    <Route path="/graphical-solve" element={<GraphicalMethodSolve />} />
+                    <Route path="/simplex" element={<SimplexMethodPage />} />
+                    <Route path="/simplex-application" element={<SimplexMethodApplication />} />
+                    <Route path="/simplex-result" element={<SimplexMethodResult />} />
+                    <Route path="/simplex-solve" element={<SimplexMethodSolve />} />
+                    <Route path="/graphical-steps" element={<GraphicalMethodSteps />} />
+                    <Route path="/simplex-steps" element={<SimplexMethodSteps />} />
+                </Routes>
             </div>
-            <div>
-                <h2>Constraints</h2>
-                {constraints.map((constraint, index) => (
-                    <input
-                        key={index}
-                        type="text"
-                        value={constraint}
-                        onChange={(e) => handleChangeConstraint(index, e.target.value)}
-                        placeholder="Enter constraint"
-                    />
-                ))}
-                <button onClick={handleAddConstraint}>Add Constraint</button>
-            </div>
-            <button onClick={handleSubmit}>Solve</button>
-            {solution && (
-                <div>
-                    <h2>Solution</h2>
-                    {solution.no_solution ? (
-                        <p>{solution.solution_message}</p>
-                    ) : (
-                        <div>
-                            <p>x₁: {solution.x1_opt}</p>
-                            <p>x₂: {solution.x2_opt}</p>
-                            <p>Z: {solution.objective_value}</p>
-                        </div>
-                    )}
-                    <img src={`data:image/png;base64,${solution.graph}`} alt="Solution Graph" />
-                </div>
-            )}
-        </div>
+        </Router>
     );
 }
 
 export default App;
 
 
-// import logo from './logo.svg';
-// import './App.css';
+// // App.js
+// import React from 'react';
+// import { NavigationContainer } from '@react-navigation/native';
+// import { createStackNavigator } from '@react-navigation/stack';
+// import HomePage from './src/components/Home/HomePage';
+// import GraphicalMethodPage from './src/components/GraphicalMethod/GraphicalMethodPage';
+// import GraphicalMethodSolve from './src/components/GraphicalMethod/GraphicalMethodSolve';
+// import SimplexMethodPage from './src/components/SimplexMethod/SimplexMethodPage';
+// import SimplexMethodSolve from './src/components/SimplexMethod/SimplexMethodSolve';
+// import { Provider as PaperProvider } from 'react-native-paper';
+// import { Appbar } from 'react-native-paper';
 
-// function App() {
+// const Stack = createStackNavigator();
+
+// const App = () => {
 //   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
+//     <PaperProvider>
+//       <NavigationContainer>
+//         <Stack.Navigator initialRouteName="HomePage">
+//           <Stack.Screen name="HomePage" component={HomePage} options={{ header: (props) => <CustomHeader {...props} /> }} />
+//           <Stack.Screen name="GraphicalMethodPage" component={GraphicalMethodPage} options={{ header: (props) => <CustomHeader {...props} /> }} />
+//           <Stack.Screen name="GraphicalMethodSolve" component={GraphicalMethodSolve} options={{ header: (props) => <CustomHeader {...props} /> }} />
+//           <Stack.Screen name="SimplexMethodPage" component={SimplexMethodPage} options={{ header: (props) => <CustomHeader {...props} /> }} />
+//           <Stack.Screen name="SimplexMethodSolve" component={SimplexMethodSolve} options={{ header: (props) => <CustomHeader {...props} /> }} />
+//         </Stack.Navigator>
+//       </NavigationContainer>
+//     </PaperProvider>
 //   );
-// }
+// };
+
+// const CustomHeader = ({ scene, previous, navigation }) => (
+//   <Appbar.Header>
+//     {previous ? <Appbar.BackAction onPress={navigation.goBack} /> : null}
+//     <Appbar.Content title="Mathematical Programming" />
+//   </Appbar.Header>
+// );
 
 // export default App;
+

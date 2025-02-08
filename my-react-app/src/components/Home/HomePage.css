@@ -1,0 +1,101 @@
+/* src/HomePage.css */
+
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background-color: #f4f4f9; /* Light background color */
+    color: #333; /* Dark text color */
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Home Container */
+.home-container {
+    background: #ffffff; /* White background */
+    padding: 30px;
+    border-radius: 15px; /* Rounded corners */
+    border: 2px solid #d2b48c; /* Light brown border */
+    max-width: 600px;
+    width: 100%;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.home-container:hover {
+    transform: scale(1.05); /* Slightly increase size on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Heading Style */
+h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    font-weight: 500; /* Medium weight */
+}
+
+/* Introduction Text */
+.intro-text {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/* Buttons Container */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Button Style */
+.buttons a {
+    text-decoration: none;
+    padding: 10px 20px;
+    background: #333; /* Dark background */
+    color: #ffffff; /* White text */
+    border-radius: 20px; /* Rounded buttons */
+    font-size: 0.9rem;
+    font-weight: 600; /* Bold text */
+    transition: background 0.3s, transform 0.2s;
+}
+
+.buttons a:hover {
+    background: #555; /* Darker on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+
+
+
+/* .home {
+    text-align: center;
+}
+
+.intro-text {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.buttons a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.buttons a:hover {
+    background-color: #0056b3;
+} */
